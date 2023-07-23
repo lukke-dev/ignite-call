@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  ignite_call:
+    container_name: ignite_call
+    build: ./
+    stdin_open: true
+    tty: true
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    command: bash -c "npm i && npm run dev"
+    volumes:
+      - ./:/ignite_call
+    ports:
+      - 3000:3000
