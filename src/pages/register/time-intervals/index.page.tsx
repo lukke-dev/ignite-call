@@ -7,6 +7,7 @@ import {
   TextInput,
 } from '@ignite-ui/react'
 import { z as zod } from 'zod'
+import { useRouter } from 'next/router'
 import { api } from '../../../lib/axios'
 import { ArrowRight } from 'phosphor-react'
 import { Container, Header } from '../styles'
@@ -87,6 +88,8 @@ export default function TimeIntervals() {
     },
   })
 
+  const router = useRouter()
+
   const weekDays = getWeekDays()
 
   const { fields: intervalOptions } = useFieldArray({
@@ -99,6 +102,8 @@ export default function TimeIntervals() {
   async function handleSetTimeIntervals(data: any) {
     const { intervals } = data as TimeIntervalsFormOutput
     await api.post('/users/time-intervals', { intervals })
+
+    await router.push('/register/update-profile')
   }
 
   return (
