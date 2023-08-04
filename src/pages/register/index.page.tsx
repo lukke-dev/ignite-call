@@ -1,12 +1,13 @@
 import { z as zod } from 'zod'
 import { useEffect } from 'react'
+import { api } from '@/lib/axios'
+import { NextSeo } from 'next-seo'
 import { useRouter } from 'next/router'
-import { ArrowRight } from 'phosphor-react'
 import { useForm } from 'react-hook-form'
+import { ArrowRight } from 'phosphor-react'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Container, FormError, Header, Form } from './styles'
 import { Button, Heading, MultiStep, Text, TextInput } from '@ignite-ui/react'
-import { api } from '@/lib/axios'
 
 const registerFormSchema = zod.object({
   username: zod
@@ -58,6 +59,8 @@ export default function Register() {
 
   return (
     <Container>
+      <NextSeo title="Crie uma conta | Ignite Call" />
+
       <Header>
         <Heading as="strong">Bem-vindo ao Ignite Call!</Heading>
         <Text>

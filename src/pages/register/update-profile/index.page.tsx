@@ -18,6 +18,7 @@ import {
 } from '@ignite-ui/react'
 import { Container, Header } from '../styles'
 import { useSession } from 'next-auth/react'
+import { NextSeo } from 'next-seo'
 
 const updateProfileSchema = zod.object({
   bio: zod.string(),
@@ -46,6 +47,8 @@ export default function UpdateProfile() {
 
   return (
     <Container>
+      <NextSeo title="Atualize seu perfil | Ignite Call" noindex />
+
       <Header>
         <Heading as="strong">Bem-vindo ao Ignite Call!</Heading>
         <Text>
